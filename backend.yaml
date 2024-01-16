@@ -53,7 +53,7 @@ spec:
         - containerPort: 5000
         env:
           - name: MONGO_URI
-            value: "mongodb+srv://admin:adminpassword@cluster0.464wvua.mongodb.net/myflix/videos/"
+            value: "mongodb+srv://admin:adminpassword@cluster0.464wvua.mongodb.net/"
           - name: MYSQL_HOST
             value: sqldb.cr0gumy26ddi.us-west-2.rds.amazonaws.com
           - name: MYSQL_USER
