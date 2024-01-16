@@ -1,7 +1,7 @@
 import os
 
 # MongoDB Configuration
-MONGO_URI = "mongodb+srv://admin:adminpassword@cluster0.464wvua.mongodb.net/myflix/videos/"
+MONGO_URI = "mongodb+srv://admin:adminpassword@cluster0.464wvua.mongodb.net/"
 
 # MySQL Configuration
 MYSQL_DATABASE_HOST = 'sqldb.cr0gumy26ddi.us-west-2.rds.amazonaws.com'
