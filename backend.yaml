@@ -1,68 +1,24 @@
-apiVersion: v1
-kind: Secret
-metadata:
-  name: regcred
-data:
-  .dockerconfigjson: DOCKER_CONFIG
-type: kubernetes.io/dockerconfigjson
+version: '3'
+services:
+  flask-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+    environment:
+      - MONGO_URI=mongodb+srv://admin:adminpassword@cluster0.464wvua.mongodb.net/
+      - MYSQL_HOST=sqldb.cr0gumy26ddi.us-west-2.rds.amazonaws.com
+      - MYSQL_USER=myflix_user
+      - MYSQL_PASSWORD=admin
+      - MYSQL_DB=myflix_db
+    image: stuflo/myflix:flask-prod
+    deploy:
+      replicas: 1
+    secrets:
+      - regcred
 
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: flask-api
-  namespace: myflix
-  labels:
-    backend: flaskapi-backend
-spec:
-  selector:
-    backend: flaskapi-backend
-  ports:
-  - port: 5000
-    targetPort: 5000
-
----
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: flaskapi-deployment
-  namespace: myflix
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      backend: flaskapi-backend
-  template:
-    metadata:
-      name: flaskpods
-      namespace: myflix
-      labels:
-        backend: flaskapi-backend
-    spec:
-      containers:
-      - name: flaskapi
-        image: stuflo/myflix:flask-prod
-        imagePullPolicy: Always
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: 5000
-        env:
-          - name: MONGO_URI
-            value: "mongodb+srv://admin:adminpassword@cluster0.464wvua.mongodb.net/"
-          - name: MYSQL_HOST
-            value: sqldb.cr0gumy26ddi.us-west-2.rds.amazonaws.com
-          - name: MYSQL_USER
-            value: myflix_user
-          - name: MYSQL_PASSWORD
-            value: admin
-          - name: MYSQL_DB
-            value: myflix_db
-          - name: PYTHONUNBUFFERED
-            value: "1"
-        imagePullSecrets:
-        - name: regcred
+secrets:
+  regcred:
+    file:
+      .dockerconfigjson
