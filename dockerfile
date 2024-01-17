@@ -1,5 +1,5 @@
 # Use a lightweight Python image
-FROM python:3.8-alpine3.17
+FROM python:3.12
 
 # Install build dependencies
 RUN apk add --no-cache build-base openssl-dev libffi-dev
