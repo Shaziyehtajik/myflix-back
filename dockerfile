@@ -2,7 +2,7 @@
 FROM python:3.12
 
 # Install build dependencies
-RUN apk add --no-cache build-base openssl-dev libffi-dev
+RUN apt-get update && apt-get install -y build-essential libssl-dev libffi-dev
 
 # Install pipenv
 RUN pip install pipenv
