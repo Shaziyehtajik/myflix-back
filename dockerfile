@@ -11,7 +11,7 @@ RUN pip install pipenv
 ENV FLASK_APP MyFlix_API.app
 ENV FLASK_DEBUG 1
 
-ENV MONGO_URI "mongodb+srv://admin:adminpassword@cluster0.464wvua.mongodb.net/myflix/videos/"
+ENV MONGO_URI "mongodb+srv://admin:adminpassword@cluster0.464wvua.mongodb.net/"
 
 ENV MYSQL_HOST "sqldb.cr0gumy26ddi.us-west-2.rds.amazonaws.com"
 ENV MYSQL_USER "myflix_user"
