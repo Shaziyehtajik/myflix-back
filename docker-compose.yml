@@ -12,7 +12,7 @@ services:
       - MYSQL_USER=myflix_user
       - MYSQL_PASSWORD=admin
       - MYSQL_DB=myflix_db
-    image: stuflo/myflix:flask-prod
+    image: shaziyehtajik/myflix-api:v1.0
     deploy:
       replicas: 1
     secrets:
