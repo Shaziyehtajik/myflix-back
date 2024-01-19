@@ -1,8 +1,10 @@
-# Use a lightweight Python image
+# Use a specific version of Python image
 FROM python:3.12
 
 # Install build dependencies
-RUN apt-get update && apt-get install -y build-essential libssl-dev libffi-dev
+RUN apt-get update && \
+    apt-get install -y build-essential libssl-dev libffi-dev && \
+    apt-get install -y apt-utils
 
 # Install pipenv
 RUN pip install pipenv
@@ -24,8 +26,8 @@ WORKDIR /app
 # Copy only the Pipfile and Pipfile.lock to leverage Docker cache
 COPY Pipfile Pipfile.lock /app/
 
-# Install apt and other dependencies
-RUN apt-get install -y apt-utils && pipenv install --deploy --ignore-pipfile
+# Install dependencies
+RUN pipenv install --deploy --ignore-pipfile
 
 # Copy the rest of the application code
 COPY . /app
