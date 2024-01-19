@@ -24,8 +24,8 @@ WORKDIR /app
 # Copy only the Pipfile and Pipfile.lock to leverage Docker cache
 COPY Pipfile Pipfile.lock /app/
 
-# Install dependencies
-RUN pipenv install --deploy --ignore-pipfile
+# Install apt and other dependencies
+RUN apt-get install -y apt-utils && pipenv install --deploy --ignore-pipfile
 
 # Copy the rest of the application code
 COPY . /app
