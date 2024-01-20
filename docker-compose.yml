@@ -3,6 +3,7 @@ services:
   flask-api:
     build:
       context: .
+      dockerfile: Dockerfile
     ports:
       - 5000:5000
     environment:
@@ -14,10 +15,3 @@ services:
     image: shaziyehtajik/myflix-app
     deploy:
       replicas: 1
-    secrets:
-      - regcred
-
-secrets:
-  regcred:
-    file:
-      .dockerconfigjson
