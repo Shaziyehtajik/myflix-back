@@ -23,7 +23,7 @@ ENV MYSQL_DB "myflix_db"
 # Set the working directory
 WORKDIR /app
 
-
+COPY Pipfile Pipfile.lock /app/
 # Install dependencies
 RUN pipenv install --deploy --ignore-pipfile
 
