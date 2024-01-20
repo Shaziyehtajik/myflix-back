@@ -22,6 +22,7 @@ ENV MYSQL_DB "myflix_db"
 
 # Set the working directory
 WORKDIR /app
+RUN pip install flask
 
 # Copy only the Pipfile and Pipfile.lock to leverage Docker cache
 COPY Pipfile Pipfile.lock /app/
