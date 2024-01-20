@@ -36,4 +36,5 @@ COPY . /app
 EXPOSE 5000
 
 # Run the application
+# Run the application
 CMD ["pipenv", "run", "python", "-m", "app"]
