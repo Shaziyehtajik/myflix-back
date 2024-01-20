@@ -36,4 +36,5 @@ COPY . /app
 EXPOSE 5000
 
 # Run the application
-CMD ["pipenv", "run", "flask", "run", "--host", "0.0.0.0"]
+CMD ["pipenv", "run", "python", "-m", "MyFlix_API.app"]
+
