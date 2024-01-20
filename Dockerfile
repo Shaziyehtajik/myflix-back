@@ -36,4 +36,4 @@ COPY . /app
 EXPOSE 5000
 
 # Run the application
-CMD ["pipenv", "run", "python", "-m", "myflix_backend.app"]
+CMD ["pipenv", "run", "python", "-m", "app"]
