@@ -37,4 +37,3 @@ EXPOSE 5000
 
 # Run the application
 CMD ["pipenv", "run", "python", "-m", "myFlix_backend.app"]
-
