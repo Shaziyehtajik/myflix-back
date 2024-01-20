@@ -15,7 +15,8 @@
             }
         ]
     },
-    "default": {"aiohttp": {
+    "default": {
+        "aiohttp": {
             "hashes": [
                 "sha256:02f9a2c72fc95d59b881cf38a4b2be9381b9527f9d328771e90f72ac76f31ad8",
                 "sha256:059a91e88f2c00fe40aed9031b3606c3f311414f86a90d696dd982e7aec48142",
@@ -1326,6 +1327,7 @@
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
             "version": "==5.5.2"
         }
-    },,
+    },
     "develop": {}
 }
+
