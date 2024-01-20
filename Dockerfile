@@ -10,7 +10,7 @@ RUN apt-get update && \
 RUN pip install pipenv
 
 # Set environment variables
-ENV FLASK_APP MyFlix_API.app
+ENV FLASK_APP myflix-backend.app
 ENV FLASK_DEBUG 1
 
 ENV MONGO_URI "mongodb+srv://admin:adminpassword@cluster0.464wvua.mongodb.net/"
