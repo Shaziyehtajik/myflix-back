@@ -28,9 +28,8 @@ COPY Pipfile /app/
 COPY Pipfile.lock /app/
 
 # Install dependencies
-RUN pipenv install Flask
 RUN pipenv install --deploy --ignore-pipfile
-
+RUN pipenv install Flask
 # Expose the port the app runs on
 EXPOSE 5000
 
