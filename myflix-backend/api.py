@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, make_response
+from flask import Blueprint, request, jsonify, make_response, current_app
 from flask_cors import cross_origin
 from .sqlbd import register_user, authenticate_user, update_user_profile
 from .mongodb import (
