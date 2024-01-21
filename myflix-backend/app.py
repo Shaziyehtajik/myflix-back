@@ -6,7 +6,7 @@ from myflix-backend.api import api_page
 app = Flask(__name__)
 
 # Load configuration from the specified file
-app.config.from_pyfile('myflix-backend/settings.py')
+app.config.from_pyfile('settings.py')
 
 # Enable CORS for all routes
 CORS(app)
