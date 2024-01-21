@@ -24,7 +24,8 @@ ENV MYSQL_DB "sqldb"
 WORKDIR /app
 
 # Copy Pipfile and Pipfile.lock separately
-COPY Pipfile Pipfile.lock /app/
+COPY Pipfile /app/
+COPY Pipfile.lock /app/
 
 # Install dependencies
 RUN pipenv install --deploy --ignore-pipfile
@@ -33,4 +34,10 @@ RUN pipenv install --deploy --ignore-pipfile
 EXPOSE 5000
 
 # Run the application
+#CMD ["pipenv", "run", "flask", "run", "--host", "0.0.0.0", "--port", "5000"]
+#CMD ["pipenv", "run", "python", "-m", "myflix-backend.app"]
 CMD ["pipenv", "run", "flask", "run", "--host", "0.0.0.0", "--port", "5000"]
+
+
+
+
