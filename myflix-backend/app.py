@@ -1,7 +1,7 @@
 import logging
 from flask import Flask
 from flask_cors import CORS
-from myflix-backend.api import api_page
+from .api import api_page
 
 app = Flask(__name__)
 
