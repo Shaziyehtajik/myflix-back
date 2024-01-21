@@ -1,4 +1,4 @@
 version: '3'
 services:
   flask-api:
-    command: ["pipenv", "run", "flask", "run", "--host", "0.0.0.0", "--port", "5000"]
+    command: ["/root/.local/share/virtualenvs/app-4PlAip0Q/bin/pipenv", "run", "flask", "run", "--host", "0.0.0.0", "--port", "5000"]
