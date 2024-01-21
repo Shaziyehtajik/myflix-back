@@ -2,6 +2,7 @@ import json
 from flask import current_app, g
 from werkzeug.local import LocalProxy
 from flask_pymongo import PyMongo
+from bson.json_util import dumps
 
 def get_mongodb():
     if 'mongodb' not in g:
@@ -35,4 +36,18 @@ def get_all_movies():
     movies = list(mongodb.movies.find())
     return movies
 
-# ... (Add more functions for retrieving movies, user movie interactions, etc.)
+# Additional movie functions (if needed)
+
+# Genre Management
+
+def get_movie_by_genre(genre):
+    movies = list(mongodb.movies.find({'genre': genre}))
+    return json_response(movies)
+
+def get_all_genres():
+    genres = list(mongodb.genres.find())
+    return json_response(genres)
+
+# Helper function for JSON response
+def json_response(payload, status=200):
+    return (dumps(payload), status, {'content-type': 'application/json'})
