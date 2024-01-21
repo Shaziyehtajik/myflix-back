@@ -1,5 +1,11 @@
-Dockerfile
-.gitignore
-README.md
+# .gitignore
+
+# Ignore Dockerfile if it's not intended to be version controlled
+# Dockerfile
+
+# Ignore environment files containing sensitive information
 .env
 .flaskenv
+
+# Ignore other files commonly excluded
+README.md
