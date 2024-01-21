@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from flask_cors import cross_origin
-from sqldb import register_user, authenticate_user, update_user_profile
-from mongodb import create_movie, update_movie, delete_movie, get_movie_by_id, get_all_movies
+from myflix-backend.sqlbd import register_user, authenticate_user, update_user_profile
+from myflix-backend.mongodb import create_movie, update_movie, delete_movie, get_movie_by_id, get_all_movies
 
 api_page = Blueprint('api', __name__)
 
@@ -49,5 +49,3 @@ def update_delete_movie(movie_id):
     elif request.method == 'DELETE':
         response = delete_movie(movie_id)
     return jsonify(response)
-
-# ... (Add more endpoints for user movie interactions, recommendations, search, admin functionalities, etc.)
