@@ -16,9 +16,9 @@ ENV FLASK_DEBUG 1
 ENV MONGO_URI "mongodb+srv://admin:adminpassword@cluster0.464wvua.mongodb.net/"
 
 ENV MYSQL_HOST "sqldb.cr0gumy26ddi.us-west-2.rds.amazonaws.com"
-ENV MYSQL_USER "myflix_user"
-ENV MYSQL_PASSWORD "admin"
-ENV MYSQL_DB "myflix_db"
+ENV MYSQL_USER "admin"
+ENV MYSQL_PASSWORD "adminpassword"
+ENV MYSQL_DB "sqldb"
 
 # Set the working directory
 WORKDIR /app
