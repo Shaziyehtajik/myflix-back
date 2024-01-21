@@ -1,12 +1,12 @@
 import logging
 from flask import Flask
 from flask_cors import CORS
-from myflix_backend.api import api_page
+from myflix-backend.api import api_page
 
 app = Flask(__name__)
 
 # Load configuration from the specified file
-app.config.from_pyfile('myflix_backend/settings.py')
+app.config.from_pyfile('myflix-backend/settings.py')
 
 # Enable CORS for all routes
 CORS(app)
