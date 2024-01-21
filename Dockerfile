@@ -4,9 +4,7 @@ FROM python:3.12
 # Set environment variables
 ENV FLASK_APP myflix-backend.app
 ENV FLASK_DEBUG 1
-
 ENV MONGO_URI "mongodb+srv://admin:adminpassword@cluster0.464wvua.mongodb.net/"
-
 ENV MYSQL_HOST "sqldb.cr0gumy26ddi.us-west-2.rds.amazonaws.com"
 ENV MYSQL_USER "admin"
 ENV MYSQL_PASSWORD "adminpassword"
@@ -24,14 +22,10 @@ RUN apt-get update && \
 RUN pip install pipenv
 
 # Copy Pipfile and Pipfile.lock separately
-COPY Pipfile /app/
-COPY Pipfile.lock /app/
+COPY Pipfile Pipfile.lock /app/
 
 # Install dependencies
 RUN pipenv install --deploy --ignore-pipfile
-
-# Install Flask
-RUN pipenv install Flask
 
 # Expose the port the app runs on
 EXPOSE 5000
