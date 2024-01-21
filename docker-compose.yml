@@ -12,6 +12,6 @@ services:
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=adminpassword
       - MYSQL_DB=sqldb
-    image: shaziyehtajik/myflix-app
+    image: shaziyehtajik/myflix-app:latest
     deploy:
       replicas: 1
