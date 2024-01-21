@@ -8,12 +8,13 @@ def get_sqldb():
     if 'sqldb' not in g:
         g.sqldb = pymysql.connect(
             host='sqldb.cr0gumy26ddi.us-west-2.rds.amazonaws.com',
-            user=current_app.config.get('admin'),
-            password=current_app.config.get('adminpassword'),
-            database=current_app.config.get('sqldb'),
+            user=current_app.config.get('MYSQL_USER'),
+            password=current_app.config.get('MYSQL_PASSWORD'),
+            database=current_app.config.get('MYSQL_DB'),
             port=3306
         )
     return g.sqldb
+
 
 # Use LocalProxy to read the global db instance with just `db`
 sqldb = LocalProxy(get_sqldb)
