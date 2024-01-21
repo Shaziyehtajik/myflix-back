@@ -1,7 +1,17 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, make_response
 from flask_cors import cross_origin
-from myflix-backend.sqlbd import register_user, authenticate_user, update_user_profile
-from myflix-backend.mongodb import create_movie, update_movie, delete_movie, get_movie_by_id, get_all_movies
+from .sqlbd import register_user, authenticate_user, update_user_profile
+from .mongodb import (
+    create_movie,
+    update_movie,
+    delete_movie,
+    get_movie_by_id,
+    get_all_movies,
+    get_movie,
+    get_genres,
+)
+from .sqldb import verify, create
+from .stream import initiate_stream
 
 api_page = Blueprint('api', __name__)
 
@@ -49,3 +59,49 @@ def update_delete_movie(movie_id):
     elif request.method == 'DELETE':
         response = delete_movie(movie_id)
     return jsonify(response)
+
+# Additional Routes
+
+@api_page.route('/genres', methods=['GET'])
+@cross_origin()
+def api_get_genres():
+    response = get_genres()
+    return jsonify(response)
+
+@api_page.route('/verify', methods=['POST'])
+@cross_origin()
+def verification():
+    username = request.json['username']
+    password = request.json['password']
+    if verify(username, password):
+        return {"token": username}, 200
+    else:
+        return {"token": "error"}, 200
+
+@api_page.route('/create', methods=['POST'])
+@cross_origin()
+def api_create_account():
+    username = request.json['username']
+    password = request.json['password']
+    if create(username, password):
+        return {"result": True}, 200
+    else:
+        return {"result": False}, 200
+
+@api_page.route('/stream', methods=['POST'])
+@cross_origin()
+def start_stream():
+    filename = request.json['filename']
+    response = initiate_stream(filename)
+    if response == "success":
+        return '', 200
+    if response == "error":
+        return '', 404
+
+@api_page.route('/health')
+def health():
+    return '', 200
+
+@api_page.route('/ready')
+def ready():
+    return '', 200
