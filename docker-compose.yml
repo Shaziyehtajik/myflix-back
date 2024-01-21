@@ -9,9 +9,9 @@ services:
     environment:
       - MONGO_URI=mongodb+srv://admin:adminpassword@cluster0.464wvua.mongodb.net/
       - MYSQL_HOST=sqldb.cr0gumy26ddi.us-west-2.rds.amazonaws.com
-      - MYSQL_USER=myflix_user
-      - MYSQL_PASSWORD=admin
-      - MYSQL_DB=myflix_db
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=adminpassword
+      - MYSQL_DB=sqldb
     image: shaziyehtajik/myflix-app
     deploy:
       replicas: 1
