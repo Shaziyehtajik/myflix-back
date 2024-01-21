@@ -1,7 +1,7 @@
-# .gitignore
+.gitignore
 
 # Ignore Dockerfile if it's not intended to be version controlled
-# Dockerfile
+Dockerfile
 
 # Ignore environment files containing sensitive information
 .env
